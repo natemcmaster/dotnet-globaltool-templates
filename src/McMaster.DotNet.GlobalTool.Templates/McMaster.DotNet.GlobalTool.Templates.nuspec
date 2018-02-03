@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>McMaster.DotNet.GlobalTool.Templates</id>
+    <version>$version$</version>
+    <authors>Nate McMaster</authors>
+    <description>Templates for creating .NET Core global tools</description>
+    <language>en-US</language>
+    <projectUrl>https://github.com/natemcmaster/DotNetGlobalTool</projectUrl>
+    <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <copyright>Copyright Nate McMaster</copyright>
+    <tags>dotnet dotnet-core templates</tags>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src="content/**" target="content/" />
+  </files>
+</package>

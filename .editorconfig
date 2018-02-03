@@ -1,0 +1,5 @@
+root = true
+
+[*.{yml,ps1,nuspec,json,props,targets,csproj}]
+indent_size = 2
+indent_style = space

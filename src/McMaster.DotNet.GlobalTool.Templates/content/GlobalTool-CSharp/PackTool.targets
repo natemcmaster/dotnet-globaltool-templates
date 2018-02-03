@@ -1,0 +1,21 @@
+<Project>
+  <PropertyGroup>
+    <ToolTargetFramework Condition=" '$(ToolTargetFramework)' == '' ">$(TargetFramework)</ToolTargetFramework>
+    <ToolRuntimeIdentifier Condition=" '$(ToolRuntimeIdentifier)' == '' ">$(RuntimeIdentifier)</ToolRuntimeIdentifier>
+    <ToolRuntimeIdentifier Condition=" '$(ToolRuntimeIdentifier)' == '' ">any</ToolRuntimeIdentifier>
+  </PropertyGroup>
+
+  <Target Name="PackGlobalTool" BeforeTargets="GenerateNuspec" DependsOnTargets="Publish">
+    <PropertyGroup>
+      <NuspecProperties>
+        publishDir=$(PublishDir);
+        packageId=$(PackageId);
+        version=$(PackageVersion);
+        authors=$(Authors);
+        description=$(PackageDescription);
+        toolTfm=$(ToolTargetFramework);
+        toolRid=$(ToolRuntimeIdentifier);
+      </NuspecProperties>
+    </PropertyGroup>
+  </Target>
+</Project>

@@ -1,0 +1,29 @@
+﻿version: 2.1.300-preview1.{build}
+init:
+  - git config --global core.autocrlf input
+clone_depth: 1
+branches:
+  only:
+    - master
+build_script:
+  - ps: .\build.ps1 -Version $env:APPVEYOR_BUILD_VERSION
+environment:
+  global:
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+    DOTNET_CLI_TELEMETRY_OPTOUT: 1
+test: off
+test_script:
+  - ps: .\test.ps1
+os: Visual Studio 2017
+artifacts:
+  - path: 'artifacts\*.nupkg'
+    name: Packages
+    type: NuGetPackages
+deploy:
+  - provider: NuGet
+    name: myget
+    artifact: Packages
+    server: https://www.myget.org/F/natemcmaster/api/v2/package
+    symbol_server: https://www.myget.org/F/natemcmaster/api/v2/package
+    api_key:
+      secure: KF1yGk4IHJyyfiHfFSCxJ+p5iZX+KPfCTnCihjD5iIZjasTS1lHeilpbaon4wvcM

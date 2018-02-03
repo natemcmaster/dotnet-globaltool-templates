@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Nate McMaster",
+  "classifications": [
+    "Console",
+    "Empty"
+  ],
+  "name": ".NET Core Global Console Tool",
+  "generatorVersions": "[1.0.0.0-*)",
+  "description": "An empty project template for creating a .NET Core Global Tool.",
+  "groupIdentity": "McMaster.GlobalTool",
+  "precedence": "3000",
+  "identity": "McMaster.GlobalTool.Empty.CSharp",
+  "shortName": "global-tool",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "My.Tool",
+  "preferNameDirectory": true,
+  "guids": [
+    "7387b3c8-b87a-401b-b5ca-ee2a955e3b6f"
+  ],
+  "symbols": {
+    "skipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "If specified, skips the automatic restore of the project on create.",
+      "defaultValue": "false"
+    },
+    "command-name": {
+      "type": "parameter",
+      "datatype": "text",
+      "description": "The name of the global command. This is what users will type to invoke this tool once it is installed.",
+      "defaultValue": "my-tool",
+      "replaces": "$(CommandName)"
+    }
+  },
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        ".template.config/**"
+      ],
+      "rename": {
+        "globaltool.nuspec2": "globaltool.nuspec"
+      }
+    }
+  ],
+  "primaryOutputs": [
+    {
+      "path": "My.Tool.csproj"
+    }
+  ],
+  "defaultName": "ConsoleApplication1",
+  "postActions": [
+    {
+      "condition": "(!skipRestore)",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ]
+}
