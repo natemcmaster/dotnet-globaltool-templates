@@ -18,6 +18,8 @@ if (-not ($env:PATH -contains $toolsDir)) {
 }
 
 Remove-Item -Recurse .build/test-template/ -ErrorAction Ignore
+Remove-Item -Recurse .build/bin/test-template/ -ErrorAction Ignore
+Remove-Item -Recurse $home/.dotnet/toolspkgs/test-template/ -ErrorAction Ignore
 Get-ChildItem "$toolsDir/test-template*" -ErrorAction Ignore | Remove-Item
 
 & "$PSScriptRoot/build.ps1" -Version 99.99.99 -OutputDir $tmpDir

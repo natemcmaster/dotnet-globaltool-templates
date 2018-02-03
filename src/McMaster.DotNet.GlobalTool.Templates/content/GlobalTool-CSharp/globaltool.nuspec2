@@ -15,6 +15,5 @@
   </metadata>
   <files>
     <file src="$publishdir$" target="tools/$toolTfm$/$toolRid$/" />
-    <file src="DotnetToolSettings.xml" target="tools/$toolTfm$/$toolRid$/DotnetToolSettings.xml" />
   </files>
 </package>
