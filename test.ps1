@@ -1,7 +1,6 @@
 #!/usr/bin/env pwsh
 
 $ErrorActionPreference = 'Stop'
-Set-StrictMode -Version 1
 
 $tmpDir = "$PSScriptRoot/.build/test-template/"
 

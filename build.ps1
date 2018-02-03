@@ -5,7 +5,6 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-Set-StrictMode -Version 1
 
 $artifactsDir = "$PSScriptRoot/artifacts"
 $buildDir = "$PSScriptRoot/.build"
