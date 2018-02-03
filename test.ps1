@@ -2,6 +2,13 @@
 
 $ErrorActionPreference = 'Stop'
 
+function __exec($_cmd) {
+  & $_cmd @args
+  if ($LASTEXITCODE -ne 0) {
+    throw "$cmd exited with $LASTEXITCODE"
+  }
+}
+
 $tmpDir = "$PSScriptRoot/.build/test-template/"
 $toolsDir = Join-Path ${home} (Join-Path '.dotnet' 'tools')
 
@@ -10,21 +17,16 @@ if (-not ($env:PATH -contains $toolsDir)) {
   $env:PATH = "${toolsDir}${pathSeparator}${env:PATH}"
 }
 
-& dotnet new --uninstall McMaster.DotNet.GlobalTool.Templates | out-null
 Remove-Item -Recurse .build/test-template/ -ErrorAction Ignore
 Get-ChildItem "$toolsDir/test-template*" -ErrorAction Ignore | Remove-Item
 
-& "$PSScriptRoot/build.ps1"
-& dotnet new --install $PSScriptRoot/artifacts/McMaster.DotNet.GlobalTool.Templates.99.99.99.nupkg
-& dotnet new global-tool --output $tmpDir --command-name test-template
-& dotnet pack $tmpDir --output $tmpDir
-& dotnet install tool -g test-template --source $tmpDir --version 1.0.0
+& "$PSScriptRoot/build.ps1" -Version 99.99.99 -OutputDir $tmpDir
+__exec dotnet new --debug:custom-hive "$tmpDir/templateengine" --install $tmpDir/McMaster.DotNet.GlobalTool.Templates.99.99.99.nupkg
+__exec dotnet new global-tool --debug:custom-hive "$tmpDir/templateengine" --output $tmpDir --command-name test-template
+__exec dotnet pack $tmpDir --output $tmpDir
+__exec dotnet install tool -g test-template --source $tmpDir --version 1.0.0
 
 Get-Command test-template
 
-& test-template
+__exec test-template
 
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "Template test faile"
-    exit 1
-}
