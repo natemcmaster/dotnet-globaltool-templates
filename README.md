@@ -7,7 +7,7 @@ This project contains templates for creating .NET Core Global tools.
 
 Install the templates package
 
-    dotnet new --install "McMaster.DotNet.GlobalTool.Templates::2.1.300-preview1-*"
+    dotnet new --install "McMaster.DotNet.GlobalTool.Templates::2.1.300-preview1"
 
 Create a new project
 
