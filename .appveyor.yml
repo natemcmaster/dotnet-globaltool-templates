@@ -1,5 +1,4 @@
-﻿version: 2.1.300-preview1-build{build}
-init:
+﻿init:
   - git config --global core.autocrlf input
 install:
   - ps: iwr https://raw.githubusercontent.com/dotnet/cli/release/2.1.3xx/scripts/obtain/dotnet-install.ps1 -outfile dotnet-install.ps1
@@ -9,7 +8,7 @@ branches:
   only:
     - master
 build_script:
-  - ps: .\build.ps1 -Version $env:APPVEYOR_BUILD_VERSION
+  - ps: .\build.ps1 -Version (Get-Content version.txt)
 environment:
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true

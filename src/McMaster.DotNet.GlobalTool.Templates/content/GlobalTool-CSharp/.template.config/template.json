@@ -42,10 +42,7 @@
       "target": "./",
       "exclude": [
         ".template.config/**"
-      ],
-      "rename": {
-        "globaltool.nuspec2": "globaltool.nuspec"
-      }
+      ]
     }
   ],
   "primaryOutputs": [
