@@ -26,7 +26,7 @@ Get-ChildItem "$toolsDir/test-template*" -ErrorAction Ignore | Remove-Item
 __exec dotnet new --debug:custom-hive "$tmpDir/templateengine" --install $tmpDir/McMaster.DotNet.GlobalTool.Templates.99.99.99.nupkg
 __exec dotnet new global-tool --debug:custom-hive "$tmpDir/templateengine" --output $tmpDir --command-name test-template
 __exec dotnet pack $tmpDir --output $tmpDir
-__exec dotnet install tool -g test-template --source $tmpDir --version 1.0.0
+__exec dotnet tool install -g test-template --source-feed $tmpDir --version 1.0.0
 
 Get-Command test-template
 
