@@ -9,7 +9,7 @@ branches:
   only:
     - master
 build_script:
-  - ps: .\build.ps1
+  - ps: .\build.ps1 -Version $env:APPVEYOR_BUILD_VERSION
 environment:
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
