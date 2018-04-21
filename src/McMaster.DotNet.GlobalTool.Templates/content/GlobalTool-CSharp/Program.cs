@@ -14,7 +14,7 @@ namespace My.Tool
 
         private int OnExecute()
         {
-            Console.WriteLine($"Hello {Name}");
+            Console.WriteLine($"Hello {Name}!");
             return 0;
         }
     }

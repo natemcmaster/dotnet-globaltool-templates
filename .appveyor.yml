@@ -1,4 +1,4 @@
-﻿version: 2.1.300-preview2-{build}
+﻿version: 2.1.300-preview2.{build}
 init:
   - git config --global core.autocrlf input
 install:
