@@ -31,5 +31,5 @@ __exec dotnet tool install -g test-template --source-feed $tmpDir --version 1.0.
 Get-Command test-template
 
 __exec test-template --help
-__exec test-template --name 'test script'
+__exec test-template --count 3 'test script'
 
