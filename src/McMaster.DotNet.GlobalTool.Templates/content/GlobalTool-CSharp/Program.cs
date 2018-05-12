@@ -9,7 +9,7 @@ namespace My.Tool
     {
         public static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
 
-        [Argument(Description = "A positional parameter that must be specified.\nThe name of the person to greet.")]
+        [Argument(0, Description = "A positional parameter that must be specified.\nThe name of the person to greet.")]
         [Required]
         public string Name { get; }
 
