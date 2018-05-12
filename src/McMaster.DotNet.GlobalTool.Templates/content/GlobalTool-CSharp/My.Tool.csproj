@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <ToolCommandName>$(CommandName)</ToolCommandName>
-    <PackAsTool>true</PackAsTool>
+    <PackAsTool>True</PackAsTool>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
